@@ -1,0 +1,17 @@
+fun normalizeUnits(manifest){
+    var -obj new_manifest;
+    var -l keys = manifest.keys;
+    var -l values = manifest.values;
+
+    for(var -i i = 0; i < manifest.length; i=i+1){ new_manifest[keys[i]] = values[i]; }
+
+    var -l medidas = ["lb","kg"];
+    if (new_manifest.unit in medidas[0]) { new_manifest.weight = (new_manifest.weight / 0.453592).f_valuation(10); new_manifest.unit = "kg"; }
+    if (new_manifest.unit in medidas[1]) { new_manifest.weight = (new_manifest.weight * 2.20462).f_valuation(10); new_manifest.unit = "lb"; }
+    else { 
+        if(new_manifest.unit !in medidas) { print "Unidade não reconhecida."; }
+    }
+    return new_manifest;
+}
+
+expor all;

@@ -1,0 +1,47 @@
+fun create_object(){
+    var -obj cargar;
+    var -l keys = ["containerID","destination","weight","unit","hazmat"];
+    var -i length = keys.length;
+
+    var -l medidas = ["",nil];
+    var -s resposta = "";
+    var -s respostas_booleanas = "";
+
+    for(var -i k = 0; k < length; k = k + 1){
+        if(keys[k] == "containerID"){
+            while(resposta in medidas){
+                input "Digite o ID do container: " >> resposta;
+            }
+            cargar[keys[k]] = resposta; resposta = "";
+        }
+        if(keys[k] == "destination"){
+            while(resposta in medidas or resposta.is_num == -T){
+                input "Digite o destino do container: " >> resposta;
+            }
+            cargar[keys[k]] = resposta; resposta = "";
+        }
+        if(keys[k] == "weight"){
+            while(resposta.convert_to_num == nil){
+                input "Digite o peso do container (número): " >> resposta;
+            }
+            cargar[keys[k]] = resposta.convert_to_num; resposta = "";
+        }
+        if(keys[k] == "unit"){
+            while(resposta in medidas or resposta.is_num == -T){
+                input "Digite a unidade do container (kg/lb): " >> resposta;
+            }
+            cargar[keys[k]] = resposta; resposta = "";
+        }
+        if(keys[k] == "hazmat"){
+            while(respostas_booleanas != "-T" and respostas_booleanas != "-F"){
+                input "Digite se o container é perigoso (-T/-F): " >> respostas_booleanas;
+            }
+            if(respostas_booleanas == "-T") { cargar[keys[k]] = -T; }
+            if(respostas_booleanas == "-F") { cargar[keys[k]] = -F; }
+        }
+    }
+
+    return cargar;
+}
+
+expor all;

@@ -1,0 +1,21 @@
+// CODIGO EXEMPLO PARA ARQUITETURA DE ARENAS E GERENCIAMENTO DE MEMORIA QUE NAO DEVE RETORNAR ERRO DE ELEMENTOS DA LINGUAGEM
+
+add "time" all;
+
+// Cria um s-bot com variaveis grandes
+var -l dados_grandes = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+print "Dados no s-bot time: ", dados_grandes;
+
+// Verifica info das arenas (retorna lista)
+var -l info = arenas_info();
+print "Info arenas: ", info;
+
+// Testa destruir arena especifica
+var -i destruidas = destroy_arena("time");
+print "Arenas destruidas: ", destruidas;
+
+// Verifica se arena foi limpa
+var -l info2 = arenas_info();
+print "Info arenas depois: ", info2;
+
+print "Teste arena concluido!";

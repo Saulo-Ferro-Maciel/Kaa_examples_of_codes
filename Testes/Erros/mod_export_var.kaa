@@ -1,0 +1,5 @@
+// Biblioteca que tenta exportar uma variável
+var -s nome = "Kaa";
+
+fun ola(){print "Olá!"; print nome;}
+expor  ola;

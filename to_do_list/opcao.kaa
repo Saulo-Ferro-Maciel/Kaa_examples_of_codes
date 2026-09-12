@@ -1,0 +1,48 @@
+fun opcao1(atividades){
+    var -s atividade;
+    print "";
+    while(atividade == nil or atividade == ""){input "Digite a atividade: " >> atividade;}
+    var -s chave = "Atividade " + (atividades.length + 1);
+    atividades[chave] = atividade; 
+    atividade = "";
+    print "Atividade adicionada com sucesso!";
+    return atividades;
+}
+
+fun opcao2(atividades){
+    print "";
+    var -l chaves = atividades.keys;
+    print "--- Suas Atividades ---";
+    for(var -i i=0; i<chaves.length; i=i+1){ 
+        var -s k = chaves[i]; 
+        print k, ": ", atividades[k]; 
+    }
+    print "-----------------------";
+}
+
+fun opcao3(atividades){
+    opcao2(atividades);
+    var -s chave_remover;
+    var -d novas_atividades;
+    var -l chaves = atividades.keys;
+    var -l valores = atividades.values;
+    var -i contador = 1;
+
+    while (chave_remover == nil or chave_remover == ""){ 
+        input "Digite o nome da atividade para remover (ex: Atividade 1): " >> chave_remover; 
+    }
+    if (chave_remover.is_num == -T){ chave_remover = "Atividade " + chave_remover; }
+    for(var -i i=0; i<chaves.length; i=i+1){
+        if(chaves[i] != chave_remover){
+            var -s nova_chave = "Atividade " + contador;
+            novas_atividades[nova_chave] = valores[i];
+            contador = contador + 1;
+        }
+    }
+    atividades = novas_atividades;
+    print "Atividade removida (se existia)!";
+    print "";
+    return atividades;
+}
+
+expor all;

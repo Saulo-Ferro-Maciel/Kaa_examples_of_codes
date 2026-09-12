@@ -1,0 +1,48 @@
+add "./RPG/levels.kaa" all;
+add "./RPG/statusRPG.kaa" all;
+add "./RPG/sai.kaa" all;
+add "./RPG/create_player.kaa" all;
+add "random" all;
+add "time" all;
+add "sys" all;
+
+var -T control;
+var -i level = 1;
+
+terminal_clear();
+var -l inimigos = levels(level);
+var -obj player = criar_jogador();
+terminal_clear();
+
+while(control == -T){
+ status_inimigos(inimigos);
+ player.ataque(inimigos);
+ inimigos = inimigos.rm_nil();
+ 
+ if(inimigos.length > 0){
+   var -i inimigo_ataque = randint(0, inimigos.length - 1);
+   player.perde_vida(inimigos[inimigo_ataque].ataque, inimigos[inimigo_ataque].nome);
+ }
+ 
+ sleep(2);
+ terminal_clear();
+ status_player(player);
+
+ if(inimigos.length == 0){
+   print "";
+   print $"Parabens, {player.nome} passou de fase!!";
+   player.vida = 100;
+   level = level + 1;
+   inimigos = levels(level);
+   if(inimigos == nil){
+     print $"Você venceu o jogo, {player.nome}!";
+     control = -F;
+     exit(0);
+   }
+ }
+
+ if (control == -T) {
+   control = sai();
+   terminal_clear();
+ }
+}

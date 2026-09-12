@@ -1,0 +1,124 @@
+// ========================================
+// Teste Completo Visual da Biblioteca math.kaa
+// ========================================
+
+add "math" all;
+add "sys" all;
+add "time" all;
+add "random" all;
+
+fun limpar_tela(){
+    var -s pergunta;
+    print "";
+    while(pergunta != "" and pergunta == nil){
+        sleep(1);
+        input "Deseja limpar a tela? (s/n): ".upper_letters >> pergunta;
+        pergunta = pergunta[0].lower_letters;
+    }
+    if(pergunta == "s"){
+        sleep(1);
+        terminal_clear();
+    }
+    print "";
+    pergunta="";
+}
+
+print "=== TESTE COMPLETO DA BIBLIOTECA MATH ===";
+print "Iniciando...";
+
+// BLOCO 1
+print "=== BLOCO 1: Matemática Básica ===";
+print ""; var -i s=  100;
+
+for(var -i x=0; x<s; x=x+1){
+    var -i a = randint(1, 100);
+    var -i b = randint(1, 100);
+    print "calc_mdc(", a, ", ", b, ") = ", calc_mdc(a, b);
+} print "";
+
+for(var -i x=0; x<s; x=x+1){
+    var -i a = randint(1, 100);
+    var -i b = randint(1, 100);
+    print "calc_mmc(", a, ", ", b, ") = ", calc_mmc(a, b);
+} print "";
+
+for(var -i x=0; x<s; x=x+1){
+    var -i a = randint(1, 100);
+    var -i b = randint(1, 100);
+    print "percent(", a, ", ", b, ") = ", percent(a, b);
+} print "";
+
+for(var -i x=0; x<s; x=x+1){
+    var -i a = randint(1, 100);
+    print "is_even(", a, ") = ", is_even(a);
+} print "";
+
+for(var -i x=0; x<s; x=x+1){
+    var -i a = randint(1, 100);
+    print "is_odd(", a, ") = ", is_odd(a);
+} print "";
+
+for(var -i x=0; x<s; x=x+1){
+    var -i a = randint(1, 100);
+    print "fibon(", a, ") = ", fibon(a);
+} print "";
+
+for(var -i x=0; x<s; x=x+1){
+    var -i a = randint(1, 100);
+    print "is_prime(", a, ") = ", is_prime(a);
+} print "";
+
+for(var -i x=0; x<s; x=x+1){
+    var -i a = randint(1, 100);
+    print "sum_upto(", a, ") = ", sum_upto(a);
+}
+limpar_tela();
+
+// BLOCO 2
+print "=== BLOCO 2: Operações com Listas ===";
+print "";
+var -l numeros = [5, 12, 8, 3, 15];
+print "Lista teste: ", numeros;
+print "list_average()         = ", list_average(numeros);
+print "list_maximum()         = ", list_maximum(numeros);
+print "list_minimum()         = ", list_minimum(numeros);
+limpar_tela();
+
+// BLOCO 3
+print "=== BLOCO 3: Vetores ===";
+print "";
+var -l v1 = vector_ones(5);
+var -l v2 = vector_full(5, 3);
+print "vector_ones(5)       = ", v1;
+print "vector_full(5, 3)    = ", v2;
+print "vector_add()         = ", vector_add(v1, v2);
+print "vector_dot()         = ", vector_dot(v1, v2);
+print "vector_magnitude()   = ", vector_magnitude(v2);
+print "vector_normalize()   = ", vector_normalize(v2);
+limpar_tela();
+
+// BLOCO 4
+print "=== BLOCO 4: Estatística ===";
+print "";
+print "stats_mean()         = ", stats_mean(numeros);
+print "stats_median()       = ", stats_median(numeros);
+print "stats_std_dev()      = ", stats_std_dev(numeros);
+print "stats_variance()     = ", stats_variance(numeros);
+print "stats_range()        = ", stats_range(numeros);
+limpar_tela();
+
+// BLOCO 5
+print "=== BLOCO 5: Funções Nativas ===";
+print "";
+print "calc_power(2,10)     = ", calc_power(2, 10);
+print "calc_sqrt(16)        = ", calc_sqrt(16);
+print "calc_sin(0)          = ", calc_sin(0);
+print "calc_cos(0)          = ", calc_cos(0);
+print "calc_log10(5)      = ", calc_log10(5);
+print "_normalize_angle(370)= ", _normalize_angle(370);
+limpar_tela();
+
+print "=== TESTE FINALIZADO COM SUCESSO! ===";
+print "";
+print "A biblioteca math.kaa está completa e funcionando corretamente.";
+print "Pode ser usada tranquilamente nos motores da Iracema.";

@@ -1,0 +1,35 @@
+// TESTES DE ERRO E RESTRIÇÕES
+
+
+var -s global_var = "estou fora";
+    
+//fun teste_erro() { print global_var; } // Deve dar erro! 
+    
+//fun teste_sucesso(local_var) { print local_var; } // Deve funcionar
+    
+//teste_sucesso(global_var); // No escopo do modulo deve funcionar
+//teste_erro();
+
+
+
+fun teste_vazio() {
+    var -f moeda = "";
+    
+    while (moeda.length > 0 or moeda == "") {
+        input "Digite o valor a ser convertido: " >> moeda;
+        if (moeda.length > 0) {
+            print "Erro: Voce digitou uma string: ", moeda;
+        }
+        if (moeda == "") {
+            print "Erro: Voce nao digitou nada!";
+        }
+    }
+    
+    return moeda;
+
+}
+
+var -i valor_moeda = teste_vazio(); 
+// Deve dar erro devido ao Stricte mode do tipo de retorno da função e da variavel não são o mesmo
+
+// Fim dos testes de erro.

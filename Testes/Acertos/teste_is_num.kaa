@@ -1,0 +1,13 @@
+// CODIGO EXEMPLO PARA VERIFICACAO DE NUMEROS VIA METODO/ATRIBUTO IS_NUM QUE NAO DEVE RETORNAR ERRO DE ELEMENTOS DA LINGUAGEM
+
+var -f n1 = 10.5;
+var -i n2 = 5;
+var -s s1 = "ola";
+
+print "10.5 eh numero (atributo)? ", n1.is_num;
+print "5 eh numero (atributo)? ", n2.is_num;
+print "'ola' eh numero (atributo)? ", s1.is_num;
+
+print "10.5 eh numero (metodo)? ", n1.is_num();
+print "5 eh numero (metodo)? ", n2.is_num();
+print "'ola' eh numero (metodo)? ", s1.is_num();

@@ -1,0 +1,83 @@
+// CODIGO EXEMPLO PARA AS FUNCOES DA BIBLIOTECA PADRAO MATH QUE NAO DEVE RETORNAR ERRO DE ELEMENTOS DA LINGUAGEM
+
+// ========================================
+// Teste de Estresse + Validação da math.kaa
+// Com loop, contagem de erros e tempo de execução
+// ========================================
+
+add "math" all;
+add "sys" all;
+add "time" all;
+
+var -i total_loops = 1000;    // mude para 1000 ou mais para teste pesado
+var -i erros = 0;
+var -i acertos = 0;
+var -i loop = 0;
+var -s tempo_start = "";
+var -s fim = "";
+
+terminal_clear();
+print "=== Teste de Estresse da Biblioteca Math ===";
+print "Loops configurados: ", total_loops;
+print "Iniciando...";
+print "";
+
+tempo_start = time_str();
+
+while (loop <= total_loops){
+    // ======================
+    // Testes Básicos
+    // ======================
+    if (calc_mdc(48, 18) != 6) {erros = loop;} else {acertos = loop;}
+    if (calc_mmc(12, 8) != 24) {erros = loop;} else {acertos = loop;}
+    if (percent(200, 10) != 20) {erros = loop;} else {acertos = loop;}
+    if (!is_even(4)) {erros = loop;} else {acertos = loop;}
+    if (!is_odd(7)) {erros = loop;} else {acertos = loop;}
+    if (fibon(10) != 55) {erros = loop;} else {acertos = loop;}
+    if (!is_prime(17)) {erros = loop;} else {acertos = loop;}
+    if (sum_upto(10) != 55) {erros = loop;} else {acertos = loop;}
+
+    // Testes de Listas
+    var -l nums = [5, 12, 8, 3, 15];
+    if (list_average(nums) != 8.6) {erros = loop;} else {acertos = loop;}   // approx
+    if (list_maximum(nums) != 15) {erros = loop;} else {acertos = loop;}
+    if (list_minimum(nums) != 3) {erros = loop;} else {acertos = loop;}
+
+    // Testes de Vetores
+    var -l v1 = vector_ones(5);
+    var -l v2 = vector_full(5, 3);
+    if (vector_add(v1, v2)[0] != 4) {erros = loop;} else {acertos = loop;}
+    if (vector_dot(v1, v2) != 15) {erros = loop;} else {acertos = loop;}
+
+    // Nativas
+    if (calc_power(2, 10) != 1024) {erros = loop;} else {acertos = loop;}
+    if (calc_sqrt(16) != 4) {erros = loop;} else {acertos = loop;}
+    if (calc_log10(100) != 2) {erros = loop;} else {acertos = loop;}
+
+    if (loop % 20 == 0) {
+        print "Loop ", loop, " / ", total_loops, " | Erros: ", erros, " | Acertos: ", acertos;
+    }
+    loop = loop + 1;
+}
+
+fim = time_str();
+
+print "";
+print "=== RESULTADO FINAL ===";
+print "Total de loops      : ", total_loops;
+print "Total de erros      : ", erros;
+print "Total de acertos    : ", acertos;
+print "Tempo começou às : ", tempo_start;
+print "Tempo terminou às : ", fim;
+
+if (erros == 0) {
+    print "";
+    print "✅ SUCESSO TOTAL! Biblioteca está estável.";
+    print "";
+} else {
+    print "";
+    print "❌ Foram encontrados ", erros, " erros.";
+    print "";
+}
+
+print "Teste finalizado.";

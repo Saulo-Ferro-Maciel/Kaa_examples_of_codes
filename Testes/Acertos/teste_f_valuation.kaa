@@ -1,0 +1,23 @@
+// CODIGO EXEMPLO PARA O METODO NATIVO DE LIMPEZA DE FLOATS (F_VALUATION) QUE NAO DEVE RETORNAR ERRO DE ELEMENTOS DA LINGUAGEM
+
+var -f x = 4.141592653589798;
+var -f y = 2.7182818284590480060000800000000777777777;
+
+print "Valores originais:";
+print "x = ", x;
+print "y = ", y;
+
+print "Com f_valuation (2 casas - padrao):";
+print "x.f_valuation() = ", x.f_valuation();
+print "y.f_valuation() = ", y.f_valuation();
+
+print "Com f_valuation(6) (6 casas):";
+print "x.f_valuation(6) = ", y.f_valuation(6);
+
+print "Com f_valuation(0) (inteiro):";
+print "x.f_valuation(0) = ", y.f_valuation(0);
+
+print "Limite de casas decimais excedido (20):";
+print "y.f_valuation(21) = ", y.f_valuation(21);
+print "x.f_valuation(21) = ", x.f_valuation(21);
+

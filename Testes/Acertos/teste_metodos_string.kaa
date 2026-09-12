@@ -1,0 +1,13 @@
+// CODIGO EXEMPLO PARA METODOS E PROPRIEDADES NATIVAS DE STRINGS QUE NAO DEVE RETORNAR ERRO DE ELEMENTOS DA LINGUAGEM
+
+var -s t = "ola mundo do kaa";
+
+print t.capitalize;
+print t.capitalize_phrase;
+print t.upper_letters;
+
+var -s t2 = "TUDO GRANDE";
+print t2.lower_letters();
+
+var -s t3 = t2.replace_elements("GRANDE", "pequeno");
+print "Substituindo GRANDE por pequeno: ", t3;

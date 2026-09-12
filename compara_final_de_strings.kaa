@@ -1,0 +1,36 @@
+fun final_string(s1, s2) {
+    var -F prosseguir;
+    var -s resultado = "";
+    var -s erro = "";
+    var -i_big len1 = s1.length;
+    var -i_big len2 = s2.length;
+
+    if (s1.is_num == -F and s2.is_num == -F) { prosseguir = -T; }
+    if (s1.is_num == -T) {erro = "1º parametro errado. Parametro devem ser do tipo string.";}
+    if (s2.is_num == -T) {erro = "2º parametro errado. Parametro devem ser do tipo string.";}
+    if (s1.is_num == -T or s2.is_num == -T) { return erro; }
+
+    if (prosseguir == -T) {
+        var -l aux;
+        var -s aux2 = "";
+
+        for (var -i i = 0; i < len1; i = i + 1) {
+            if(s1[i] == " ") {  
+                if(aux2 != "") { aux.append(aux2); aux2 = ""; }
+            }
+            else { aux2 = aux2 + s1[i]; }
+        }
+        if(aux2 != "") { aux.append(aux2); }
+
+        if(s2 in aux[-1]) { resultado = "Sim"; }
+        else { resultado = "Não"; }
+    }
+    return resultado;
+}
+
+// ==================== TESTES ====================
+print "";
+print "=== Testes da função final_string ===";
+print "final_string(Saulo Ferro Maciel,Maciel)     = ", final_string("Saulo Ferro Maciel","Maciel");
+print "final_string(Saulo Ferro Maciel,Ferro)     = ", final_string("Saulo Ferro Maciel","Ferro");
+print "final_string(SbcD,SbcD.length)         = ", final_string("SbcD","SbcD".length);

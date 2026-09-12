@@ -1,0 +1,18 @@
+// CODIGO EXEMPLO PARA AS FUNCOES DA BIBLIOTECA PADRAO RANDOM QUE NAO DEVE RETORNAR ERRO DE ELEMENTOS DA LINGUAGEM
+
+add "random" all;
+
+var -f r1 = rand();
+print "rand() entre 0 e 1: ", r1;
+
+var -i i1 = randint(1, 10);
+print "randint() entre 1 e 10: ", i1;
+
+var -l lista = [10, 20, 30, 40, 50];
+print "Choice em Lista [10, 20, 30, 40, 50]: ", choice(lista);
+
+var -t tuplo = ("A", "B", "C", "D");
+print "Choice em Tuplo (A, B, C, D): ", choice(tuplo);
+
+seed(42);
+print "Seed 42 -> randint(1, 100): ", randint(1, 100);

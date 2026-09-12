@@ -1,0 +1,17 @@
+// CODIGO EXEMPLO PARA MEDIR TAMANHO E ACESSAR INDICES DE COLECOES QUE NAO DEVE RETORNAR ERRO DE ELEMENTOS DA LINGUAGEM
+
+var -t meu_tuplo = (10, 20, 30, 40, 50);
+var -d meu_dict = {"a": 1, "b": 2, "c": 3};
+var -l minha_lista = [1, 2, 3, 4, 5];
+
+print "Lista length: ", minha_lista.length;
+print "Tuplo length: ", meu_tuplo.length;
+print "Dicionario length: ", meu_dict.length;
+
+print "Lista length(): ", minha_lista.length();
+print "Tuplo length(): ", meu_tuplo.length();
+print "Dicionario length(): ", meu_dict.length();
+
+print "Tuplo[0]: ", meu_tuplo[0];
+print "Tuplo[2]: ", meu_tuplo[2];
+print "Dict['a']: ", meu_dict["a"];

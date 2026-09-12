@@ -1,0 +1,7 @@
+add "./inimigo.kaa" all;
+
+fun gnomo(nome,vida,especie,numberID,ataque){
+ return inimigo(nome,vida,especie,numberID,ataque);
+}
+
+expor all;

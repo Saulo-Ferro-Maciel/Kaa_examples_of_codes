@@ -1,0 +1,24 @@
+// CODIGO EXEMPLO PARA COMPACTACAO DE COLECÕES COM O METODO RM_NIL QUE NAO DEVE RETORNAR ERRO DE ELEMENTOS DA LINGUAGEM
+
+// Teste 1: rm_nil em lista
+var -l lista_com_nils = [1, 2, nil, 3, nil, nil, 4, 5];
+print "Lista original: ", lista_com_nils;
+var -l lista_limpa = lista_com_nils.rm_nil;
+print "Lista apos rm_nil (atributo): ", lista_limpa;
+
+// Teste 2: rm_nil() como método
+var -l lista2 = [10, nil, 20, nil, 30];
+var -l lista2_limpa = lista2.rm_nil();
+print "Lista 2 limpa (metodo): ", lista2_limpa;
+
+// Teste 3: rm_nil em tuplo
+var -t tuplo_com_nils = (1, nil, 2, nil, 3);
+print "Tuplo original: ", tuplo_com_nils;
+var -t tuplo_limpo = tuplo_com_nils.rm_nil;
+print "Tuplo limpo: ", tuplo_limpo;
+
+// Teste 4: rm_nil em dicionário
+var -d dict_com_nils = {"a": 1, "b": nil, nil: 3, nil: nil, "e": 5};
+print "Dicionario original: ", dict_com_nils;
+var -d dict_limpo = dict_com_nils.rm_nil;
+print "Dicionario limpo (remove so chaves nil): ", dict_limpo;

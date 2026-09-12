@@ -1,0 +1,30 @@
+fun get_email(email){
+    var -l email_frente;
+    var -l email_meio;
+    var -l email_final;
+    var -l email_mascarado;
+    for(var -i i=0; i < email.length; i = i + 1){
+        if (email[i] != "@" and i <= 7){ email_frente[i] = email[i]; }
+        if (email[i] != "@" and i > 7){ email_meio[i] = "*"; }
+        if (email[i] == "@"){ email_final[i] = "@"; }
+        if ("@" in email_final){ email_final[i] = email[i]; }
+    }
+    email_mascarado = email_frente.rm_nil + email_meio.rm_nil + email_final.rm_nil;
+    return email_mascarado;
+}
+
+fun show_email_with_mask(email){
+    var -l temp_email = get_email(email);
+    var -s email_mascarado;
+    for (var -i i = 0; i < temp_email.length; i = i + 1) {
+        if(email_mascarado == nil){ email_mascarado = temp_email[i];}
+        else{email_mascarado = email_mascarado + temp_email[i];}
+    }
+    return email_mascarado;
+}
+
+var -s email = "saulo.albuquerck.100@gmail.com";
+print $"""
+Email original: {email}
+Email mascarado: {show_email_with_mask(email)}
+""";

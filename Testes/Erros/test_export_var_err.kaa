@@ -1,0 +1,3 @@
+// Tentar importar módulo que exporta variável deve gerar erro
+add "./mod_export_var.kaa" all;
+ola();

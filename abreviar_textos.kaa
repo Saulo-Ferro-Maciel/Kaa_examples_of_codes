@@ -1,0 +1,41 @@
+// Função abreviar: detecta número e string
+
+fun abreviar(a, b) {
+    var -s texto = "";
+    var -i_big tamanho_texto;
+    var -s resultado = "";
+    var -s erro = "";
+    var -F prosseguir;
+
+    if (a.is_num == -F and b.is_num == -T) { prosseguir = -T; }
+    if (a.is_num == -T) {erro = "1º parametro deve ser uma string.";}
+    if (b.is_num == -F) {erro = "2º parametro deve ser um inteiro.";}
+    if (a.is_num == -T or b.is_num == -T) { return erro; }
+
+    if (prosseguir == -T) {
+        tamanho_texto = a.length;
+        texto = a;
+    }
+    if (tamanho_texto > b) { for (var -i i = 0; i < b; i = i + 1) { resultado = resultado + texto[i]; } }
+    if (tamanho_texto <= b) { resultado = texto; }
+    if (tamanho_texto == b) { resultado = resultado; }
+    if (resultado[b-1] == " ") {
+        var -s aux = resultado;
+        resultado = "";
+        for (var -i i = 0; i < b-1; i = i + 1) {
+            if (aux[i] != " ") { resultado = resultado + aux[i]; }
+        }
+    }
+        
+    return resultado+"...";
+}
+
+// ==================== TESTES ====================
+print "";
+print "=== Testes da função abreviar ===";
+print "abreviar(Saulo Ferro Maciel,6)     = ", abreviar("Saulo Ferro Maciel",6);
+print "abreviar(Saulo Ferro Maciel,3)     = ", abreviar("Saulo Ferro Maciel",3);
+print "abreviar(SbcD,Sbcd.length)         = ", abreviar("SbcD","Sbcd".length);
+print "abreviar(10,2)                     = ", abreviar(10,2);
+print "abreviar(SbcD,4)                   = ", abreviar("SbcD",4);
+

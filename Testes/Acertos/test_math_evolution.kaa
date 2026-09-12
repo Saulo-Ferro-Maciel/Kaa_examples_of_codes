@@ -1,0 +1,17 @@
+add "math" all;
+
+print "--- TESTE FIBONACCI 64-BIT ---";
+print "Fibonacci(90):";
+print fibon(90);
+print "Fibonacci(95):";
+print fibon(95);
+
+print "--- TESTE ESTATISTICA (SORT/COPY NATIVO) ---";
+var -l lista = [9, 3, 1, 4, 6];
+print "Mediana: " + stats_median(lista);
+print "Lista original intacta: " + lista;
+
+print "--- TESTE DIVISAO EXATA ---";
+var -i a_ok = 10;
+var -i b_ok = 2;
+print a_ok / b_ok;

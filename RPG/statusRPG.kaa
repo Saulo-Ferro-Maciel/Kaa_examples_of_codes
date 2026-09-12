@@ -1,0 +1,28 @@
+fun status_inimigos(inimigos){
+    print "";
+    print "------------- Status ------------";
+    for(var -i i=0; i<inimigos.length; i=i+1) {
+    var -obj inimi = inimigos[i];
+    if(inimi.vivo == -T) {
+        sleep(1);
+        print "ID [", inimi.numberID, "] - ", inimi.nome, " HP: ", inimi.vida;
+        inimi.gritar();
+        print "";
+        }
+    }
+    print "------------------------------";
+    print "";
+}
+
+fun status_player(player){
+    sleep(1);
+    print "";
+    print "------------- Status ------------";
+    print "Nome: ", player.nome;
+    print "HP: ", player.vida;
+    print "Especie: ", player.especie;
+    print "------------------------------";
+    print "";
+}
+
+expor all;

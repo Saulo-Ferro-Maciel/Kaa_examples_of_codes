@@ -1,0 +1,25 @@
+add "./Cargas/validateManifest.kaa" all;
+add "./Cargas/normalizeUnits.kaa" all;
+add "./Cargas/createManifest.kaa" all;
+
+fun processManifest(manifest){
+    var -i_big  count= 0;
+    var -l medidas= ["Missing","Invalid"];
+    var -obj new_manifest = validateManifest(manifest);
+    
+    for (var -i i = 0; i < manifest.length; i = i + 1) {
+        if(new_manifest[manifest.keys[i]] in medidas) {
+            print "Erro no manifesto de carga: " + manifest.keys[i] + " está com valor " + new_manifest[manifest.keys[i]];
+        } else { count = count + 1; }
+    }
+
+    if(count == manifest.length) { 
+        new_manifest = normalizeUnits(new_manifest);
+        print "Manifesto de carga: "+ new_manifest["containerID"] + ". Processado com sucesso.";
+        print "Peso total: " + new_manifest["weight"] + " " + new_manifest["unit"];
+    }
+    
+}
+
+var -obj cargar = create_object();
+processManifest(cargar);

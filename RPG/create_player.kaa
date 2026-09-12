@@ -1,0 +1,29 @@
+// Módulo para criação de personagem (Player)
+
+add "./player.kaa" all;
+add "sys" all;
+
+fun criar_jogador() {
+    terminal_clear();
+    var -s nome_jogador = "";
+    var -s raca_jogador = "";
+    
+    print "===========================";
+    print "    CRIACAO DE PERSONAGEM  ";
+    print "===========================";
+    
+    while(nome_jogador == "" or nome_jogador.is_num == -T){
+        input "Digite o nome do seu heroi: " >> nome_jogador;
+    }
+    while(raca_jogador == "" or raca_jogador.is_num == -T){
+        input "Digite a raca do seu heroi (ex: Humano, Elfo): " >> raca_jogador;
+    }
+    
+    nome_jogador = nome_jogador.capitalize_phrase;
+    raca_jogador = raca_jogador.capitalize_phrase;
+    
+    var -obj novo_player = player(nome_jogador, 100, 50, raca_jogador);
+    return novo_player;
+}
+
+expor criar_jogador;

@@ -1,0 +1,15 @@
+print "--- TESTE TIPO -i_128 ---";
+var -i_128 a = 9223372036854775808;
+var -i_128 b = 2;
+var -i_128 c = a * b;
+print "9223372036854775808 * 2 = " + c;
+
+print "--- TESTE OPERADORES LOGICOS ATOMICOS (!or, xor) ---";
+print "-F !or -F = " + (-F !or -F);
+print "-T !or -F = " + (-T !or -F);
+print "-T xor -F = " + (-T xor -F);
+print "-T xor -T = " + (-T xor -T);
+
+print "--- TESTE OVERFLOW 128-BIT ---";
+var -i_128 max128 = 170141183460469231731687303715884105727;
+print max128 * 2;

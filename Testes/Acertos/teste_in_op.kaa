@@ -1,0 +1,49 @@
+// CODIGO EXEMPLO PARA OPERADORES DE CONTENCAO IN E !IN QUE NAO DEVE RETORNAR ERRO DE ELEMENTOS DA LINGUAGEM
+
+var -l frutas = ["maca", "banana", "uva"];
+var -s busca1 = "banana";
+var -s busca2 = "abacaxi";
+
+print "Lista de frutas:", frutas;
+
+// Teste do operador in
+if (busca1 in frutas) {
+    print "Sucesso: '" + busca1 + "' esta na lista.";
+} else {
+    print "Erro: '" + busca1 + "' deveria estar na lista.";
+}
+
+if (busca2 in frutas) {
+    print "Erro: '" + busca2 + "' nao deveria estar na lista.";
+} else {
+    print "Sucesso: '" + busca2 + "' nao esta na lista.";
+}
+
+// Teste do operador !in
+if (busca2 !in frutas) {
+    print "Sucesso: '" + busca2 + "' realmente nao esta na lista (usando !in).";
+} else {
+    print "Erro: '" + busca2 + "' nao deveria constar (usando !in).";
+}
+
+if (busca1 !in frutas) {
+    print "Erro: '" + busca1 + "' esta na lista mas !in disse que nao.";
+} else {
+    print "Sucesso: '" + busca1 + "' esta na lista (validando com !in).";
+}
+
+// Teste com Dicionarios
+var -d precos = {"maca": 2.5, "banana": 1.8};
+print "Dicionario de precos:", precos;
+
+if ("maca" in precos) {
+    print "Sucesso: chave 'maca' esta no dicionario.";
+} else {
+    print "Erro: chave 'maca' deveria estar no dicionario.";
+}
+
+if ("abacaxi" !in precos) {
+    print "Sucesso: chave 'abacaxi' nao esta no dicionario (usando !in).";
+} else {
+    print "Erro: chave 'abacaxi' nao deveria estar no dicionario.";
+}

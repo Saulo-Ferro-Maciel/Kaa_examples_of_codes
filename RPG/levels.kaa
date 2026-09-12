@@ -1,0 +1,18 @@
+add "./ogro.kaa" all;
+add "./gnomo.kaa" all;
+
+fun levels(level){
+    if(level == 1){
+        var -obj ogro1 = ogro("jose", 110, "ogro", 1, 15);
+        var -obj ogro2 = ogro("joao", 100, "ogro", 2, 10);
+        var -obj ogro3 = ogro("marcos", 30, "gnomo", 3, 5);
+        return [ogro1, ogro2, ogro3];
+    }
+    if(level == 2){
+        var -obj ogro1 = ogro("pietro", 110, "ogro", 1, 20);
+        var -obj ogro2 = ogro("joao", 100, "ogro", 2, 15);
+        return [ogro1, ogro2];
+    }
+}
+
+expor all;

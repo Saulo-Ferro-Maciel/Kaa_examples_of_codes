@@ -1,0 +1,50 @@
+// Kaa v3.11 - Teste de OOP (S-bots Factory)
+
+fun inimigo(nome,vida,especie,numberID,ataque) {
+    var -obj self = {
+        "nome": nome,
+        "vida": vida,
+        "dano": 0,
+        "vivo": -T,
+        "especie": especie,
+        "numberID": numberID,
+        "ataque": ataque
+    };
+    
+    fun gritar() {
+        print "O ", self.especie, " ", self.nome, " ESTA FURIOSO!!";
+    }
+
+    fun numberID(numberID){
+        self.numberID = numberID;
+    }
+
+    fun nome(nome){
+        self.nome = nome;
+    }
+
+    fun perde_vida(dano){
+        self.vida = self.vida - dano;
+    }
+
+    fun morto(morto){
+        if(morto==-F){
+            self.vivo = -T;
+            print "";
+            print "O OGRO ", self.nome, " ESTA VIVO!!";
+        }
+        else{
+            self.vivo = -F;
+            print "";
+            print "O OGRO ", self.nome, " MORREU!!";
+        }
+    }
+       
+    self.gritar = gritar;
+    self.perde_vida = perde_vida;
+    self.morto = morto;
+    
+    return self;
+}
+
+expor all;

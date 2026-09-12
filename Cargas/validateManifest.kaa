@@ -1,0 +1,49 @@
+fun validateManifest(manifest){
+    var -obj new_manifest;
+    var -l keys = manifest.keys;
+    var -l values = manifest.values;
+
+    var -l medidas  = [nil, ""];
+    for(var -i i = 0; i < manifest.length; i = i + 1){
+
+        if(keys[i] == "containerID"){
+            if(values[i] in medidas){ new_manifest[keys[i]] = "Invalid"; }
+            if(values[i] !in medidas){
+                new_manifest[keys[i]] = values[i];
+            }
+        }
+
+        if(keys[i] == "destination"){
+            if(values[i] in medidas){ new_manifest[keys[i]] = "Missing"; }
+            else {
+                if(values[i].is_num == -F){ new_manifest[keys[i]] = values[i]; }
+                else { new_manifest[keys[i]] = "Invalid"; }
+            }
+        }
+
+        if(keys[i] == "weight"){
+            if(values[i] in medidas){ new_manifest[keys[i]] = "Missing"; }
+            else {
+                if(values[i].is_num == -T){ new_manifest[keys[i]] = values[i]; }
+                else { new_manifest[keys[i]] = "Invalid"; }
+            }
+        }
+
+        if(keys[i] == "unit"){
+            if(values[i] in medidas){ new_manifest[keys[i]] = "Missing"; }
+            else {
+                if(values[i].is_num == -F){ new_manifest[keys[i]] = values[i]; }
+                else { new_manifest[keys[i]] = "Invalid"; }
+            }
+        }
+
+        if(keys[i] == "hazmat"){
+            if(values[i] == -T or values[i] == -F){ new_manifest[keys[i]] = values[i]; }
+            else { new_manifest[keys[i]] = "Invalid"; }
+        }
+    }
+
+    return new_manifest;
+}
+
+expor all;

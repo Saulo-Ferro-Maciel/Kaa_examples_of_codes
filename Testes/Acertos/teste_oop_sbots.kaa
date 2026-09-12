@@ -1,0 +1,36 @@
+// CODIGO EXEMPLO PARA ORIENTACAO A OBJETOS (S-BOTS) E FACTORY PATTERNS QUE NAO DEVE RETORNAR ERRO DE ELEMENTOS DA LINGUAGEM
+
+fun Player() {
+    var -obj self = {
+        "nome": "Heroi",
+        "score": 0,
+        "vivo": -T
+    };
+
+    fun add_score(pontos) {
+        self.score = self.score + pontos;
+    }
+
+    fun morrer() {
+        self.vivo = -F;
+        print "Player morreu!";
+    }
+
+    fun status() {
+        print "Nome: ", self.nome, " | Score: ", self.score, " | Vivo: ", self.vivo;
+    }
+
+    self.add_score = add_score;
+    self.morrer = morrer;
+    self.status = status;
+    return self;
+}
+
+var -obj p = Player();
+p.status();
+p.add_score(100);
+p.status();
+print "Score direto: ", p.score;
+
+p.titulo = "Campeao";
+print "Titulo dinamico: ", p.titulo;

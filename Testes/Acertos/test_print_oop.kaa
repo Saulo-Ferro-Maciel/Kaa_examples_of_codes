@@ -1,0 +1,45 @@
+// Teste: Filtro de métodos em print e show_in_object_all_elements_with_methods
+
+fun CriarUsuario(nome, idade){
+    var -obj self = {
+        "nome": nome,
+        "idade": idade,
+        "ativo": -T
+    };
+
+    fun saudacao(){ print "Olá, sou", self.nome; }
+    fun desativar(){ self.ativo = -F; }
+
+    self.saudacao = saudacao;
+    self.desativar = desativar;
+
+    return self;
+}
+
+var -obj usuario = CriarUsuario("Saulo", 24);
+
+print "--- TESTE 1: print obj (deve ocultar metodos) ---";
+print usuario;
+
+print "";
+print "--- TESTE 2: .keys e .values sem metodos ---";
+print usuario.keys;
+print usuario.values;
+
+print "";
+print "--- TESTE 3: show_in_object_all_elements_with_methods ---";
+print usuario.show_in_object_all_elements_with_methods;
+
+print "";
+print "--- TESTE 4: Atribuicao em variavel -s ---";
+var -s completo = usuario.show_in_object_all_elements_with_methods;
+print completo;
+
+print "";
+print "--- TESTE 5: Interpolacao em string ---";
+print $"Debug: {usuario.show_in_object_all_elements_with_methods}";
+
+print "";
+print "===================================";
+print "TODOS OS TESTES CONCLUIDOS!";
+print "===================================";

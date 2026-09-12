@@ -1,0 +1,23 @@
+// CODIGO EXEMPLO PARA INTEROPERABILIDADE E INTEGRACAO DIRETAMENTE COM PYTHON QUE NAO DEVE RETORNAR ERRO DE ELEMENTOS DA LINGUAGEM
+
+add -py "from datetime import datetime" -> datetime;
+add -py "import math" all;
+
+print "Raiz de 144 pelo Python: ", math.sqrt(144);
+
+add -py "
+def somar_py(a, b):
+    return a + b
+
+class Pessoa:
+    def __init__(self, nome):
+        self.nome = nome
+    def saudar(self):
+        return 'Ola de ' + self.nome
+" all;
+
+print "Chamando somar_py(10, 20): ", somar_py(10, 20);
+
+var -obj p = Pessoa("Kaa");
+print "Chamando metodo de classe Python: ", p.saudar();
+print "Data/Hora atual do Python: ", datetime.now();

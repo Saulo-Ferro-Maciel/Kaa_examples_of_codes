@@ -1,0 +1,14 @@
+fun sai(){
+  destroy_arena();
+ var -s sair;
+ while(sair != "s" and sair != "n"){
+   input "Deseja continuar no jogo? [s/n] " >> sair;
+ }
+ if(sair == "n"){
+   destroy_arena("gameRPG.kaa");
+   return -F;
+ }
+ else{return -T;}
+}
+
+expor all;

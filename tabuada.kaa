@@ -1,0 +1,12 @@
+// Programa Kaa: Tabuada com Validação Estrita (While Loop Safe-Type)
+var -s num_str = "";
+
+while (num_str == "" or num_str.is_num != -T) {
+    input "Digite um número válido para ver a tabuada: " >> num_str;
+    num_str = num_str.convert_to_num;
+}
+
+print "=== Tabuada do ", num_str, " ===";
+for (var -i i = 1; i <= 10; i = i + 1) {
+    print num_str, " x ", i, " = ", (num_str * i);
+}

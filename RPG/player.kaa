@@ -1,0 +1,82 @@
+// Player para simular POO
+
+add "sys" all;
+add "math" all;
+add "random" all;
+
+fun player(nome,vida,dano,especie){
+    var -obj self = {
+        "nome": nome,
+        "vida": vida,
+        "dano": dano,
+        "vivo": -T,
+        "especie": especie
+    };
+
+    fun ataque(inimigos){
+        var -s atacar; 
+        while(atacar != "s" and atacar != "n"){
+            input "Deseja atacar? [s/n] " >> atacar;
+        }
+        if(atacar == "s"){
+            var -i qual_inimigo;
+            var -F valido;
+
+            while(valido != -T){
+                input "Qual inimigo quer atacar? (Digite o ID) " >> qual_inimigo;
+                
+                for(var -i k=0; k<inimigos.length; k=k+1){
+                    var -obj ini = inimigos[k];
+                    if(qual_inimigo == ini.numberID and ini.vivo == -T){ valido = -T;}
+                }
+            }
+
+            for(var -i i=0; i<inimigos.length; i=i+1){
+                var -obj target = inimigos[i];
+                if(qual_inimigo == target.numberID){
+                    print "";
+                    var -i dano_aplicado = self.dano;
+                    var -i roll = randint(1, 100);
+                    if (roll > 80) {
+                        dano_aplicado = percent(self.dano, 150);
+                        print "!!! ATAQUE CRÍTICO !!!";
+                    }
+
+                    target.perde_vida(dano_aplicado);
+                    print "Inimigo ", target.nome, " perdeu ", dano_aplicado, " de vida. HP restante: ", target.vida;
+                    if(target.vida <= 0){
+                        target.morto(-T);
+                        inimigos[i] = nil;
+                    }
+                }
+            }
+        }
+    }
+
+    fun perde_vida(inimigo_dano,inimigo_nome){
+        self.vida = self.vida - inimigo_dano;
+        if(self.vida <= 0){
+            self.vivo = -F;
+            print "O INIMIGO ", inimigo_nome, " DEU ", inimigo_dano, " DE DANO NO JOGADOR!!";
+            print "O inimigo ", inimigo_nome, " atacou o player.";
+            print "O JOGADOR PERDEU ", inimigo_dano, " DE VIDA!!";
+            print "=============================";
+            print "        GAME OVER            ";
+            print "=============================";
+            exit(0);
+        }
+        print "O inimigo ", inimigo_nome, " atacou o player.";
+        print "O JOGADOR PERDEU ", inimigo_dano, " DE VIDA!!";
+    }
+
+    fun nome(nome){
+        self.nome = nome;
+    }
+    self.ataque = ataque;
+    self.perde_vida = perde_vida;
+    
+    return self;
+}
+
+expor all;
+  
