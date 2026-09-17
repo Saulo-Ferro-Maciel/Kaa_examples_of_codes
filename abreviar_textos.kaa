@@ -10,7 +10,7 @@ fun abreviar(a, b) {
     if (a.is_num == -F and b.is_num == -T) { prosseguir = -T; }
     if (a.is_num == -T) {erro = "1º parametro deve ser uma string.";}
     if (b.is_num == -F) {erro = "2º parametro deve ser um inteiro.";}
-    if (a.is_num == -T or b.is_num == -T) { return erro; }
+    if (a.is_num == -T or b.is_num == -F) { return erro; }
 
     if (prosseguir == -T) {
         tamanho_texto = a.length;
