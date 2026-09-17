@@ -1,7 +1,0 @@
-fun sair(){
-    var -s sair; var -l opcoes = ["s","n"];
-    while(sair.is_num == -T or sair !in opcoes){  input "Deseja sair? (s/n) " >> sair;}
-    if(sair == "s"){ return -F;} else { return -T;}
-}
-
-expor all;
